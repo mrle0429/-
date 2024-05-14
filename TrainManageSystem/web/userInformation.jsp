@@ -22,9 +22,9 @@
 <h5>所在国家：${user.getCountry()}</h5>
 <br>
 
-<a href="<%=request.getContextPath()%>/UserInformationChange?userId=${user.getUserId()}" onclick="return confirm('确定要修改数据吗')">修改个人信息</a>
-<a href="<%=request.getContextPath()%>/UserPasswordChange?passwoed=${user.getPassword()}" onclick="return confirm('确定要修改密码吗')">修改密码</a>
-<a href="userInterface.jsp">返回主界面</a>
+<a href="<%=request.getContextPath()%>/UserInformationUpdate?userId=${user.getUserId()}" onclick="return confirm('确定要修改数据吗')">修改个人信息</a>
+<a href="<%=request.getContextPath()%>/userPassword.jsp?userId=${user.getUserId()}&password=${user.getPassword()}" onclick="return confirm('确定要修改密码吗')">修改密码</a>
+<a href="<%=request.getContextPath()%>/UserLogin?userId=${user.getUserId()}&password=${user.getPassword()}">返回主界面</a>
 
 </body>
 </html>

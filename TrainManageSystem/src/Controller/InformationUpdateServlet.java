@@ -10,8 +10,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/UserInformationChange")
-public class InformationChangeServlet extends HttpServlet {
+@WebServlet("/UserInformationUpdate")
+public class InformationUpdateServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         this.doPost(req, resp);
@@ -21,6 +21,9 @@ public class InformationChangeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("userId");
         User user = UserDao.selectUserById(id);
+
+        req.setAttribute("user",user);
+        req.getRequestDispatcher("/userUpdate.jsp").forward(req,resp);
 
     }
 }

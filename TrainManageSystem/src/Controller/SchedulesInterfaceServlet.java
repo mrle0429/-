@@ -1,7 +1,5 @@
 package Controller;
 
-import Model.User;
-import Service.UserDao;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -10,22 +8,17 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/UserInformation")
-public class UserInformationServlet extends HttpServlet {
+@WebServlet("/SchedulesInterface")
+public class SchedulesInterfaceServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        this.doPost(req,resp);
+        this.doPost(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("userId");
-        User user = UserDao.selectUserById(id);
-
-        req.setAttribute("user",user);
-        req.getRequestDispatcher("/userInformation.jsp").forward(req,resp);
-
-
+        req.getRequestDispatcher("/schedulesInterface.jsp").forward(req,resp);
     }
 }

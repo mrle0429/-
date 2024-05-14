@@ -27,11 +27,11 @@
                </tr>
 
                <tr>
-                   <td><a href="<%=request.getContextPath()%>/PersonTickets?userId=${user.getUserId()}">订单信息</a></td>
+                   <td><a href="<%=request.getContextPath()%>/OrdersTickets?userId=${user.getUserId()}">订单信息</a></td>
                </tr>
 
                <tr>
-                   <td><a href="<%=request.getContextPath()%>/schedules?userId=${user.getUserId()}">车次查询</a></td>
+                   <td><a href="<%=request.getContextPath()%>/SchedulesInterface?userId=${user.getUserId()}">车次查询</a></td>
                </tr>
 
             </tbody>

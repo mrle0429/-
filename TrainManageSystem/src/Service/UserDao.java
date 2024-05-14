@@ -52,29 +52,47 @@ public class UserDao {
         return null;
     }
 
-//    public static User updateUserInformation(){
-//
-//    }
+    public static void updatePassword(User user, String newPassword){
+        user.setPassword(newPassword);
+        updateUserById(user);
+    }
 
-    public static User updateUserById(User oldUser){
+
+
+    public static boolean updateUserById(User newUser){
         Connection con = DBUtil.getConnection();
         try {
-            String sql = "update user set userName=?, userAge=?, userSex=?, phoneNumber=?, email=?, address=?, country=? where userId = ?";
+            String sql = "update user set userName=?, userAge=?, userSex=?, phoneNumber=?, email=?, address=?, country=? ,password = ? where userId = ?";
             PreparedStatement ps = con.prepareStatement(sql);
 
-            ps.setString(1,oldUser.getUserName());
-            ps.setInt(2,oldUser.getUserAge());
-            ps.setString(3,oldUser.getUserSex());
-            ps.setString(4,oldUser.getPhoneNumber());
-            ps.setString(5,oldUser.getEmail());
-            ps.setString(6,oldUser.getAddress());
-            ps.setString(7,oldUser.getCountry());
+            ps.setString(1,newUser.getUserName());
+            ps.setInt(2,newUser.getUserAge());
+            ps.setString(3,newUser.getUserSex());
+            ps.setString(4,newUser.getPhoneNumber());
+            ps.setString(5,newUser.getEmail());
+            ps.setString(6,newUser.getAddress());
+            ps.setString(7,newUser.getCountry());
+            ps.setString(8,newUser.getPassword());
+            ps.setString(9,newUser.getUserId());
 
+            int rs = ps.executeUpdate();
+            if(rs > 0 ){
+                return true;
+            }
 
-        } catch (SQLException e) {
+        }  catch (SQLException e) {
+            try {
+                if (con != null) {
+                    con.rollback();
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
             e.printStackTrace();
+        } finally {
+            DBUtil.close(con);
         }
-        return null;
+        return false;
     }
 
 
@@ -125,7 +143,7 @@ public class UserDao {
         } catch (SQLException e) {
             try {
                 if (con != null) {
-                    con.rollback(); //
+                    con.rollback();
                 }
             } catch (SQLException ex) {
                 ex.printStackTrace();
