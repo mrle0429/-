@@ -9,6 +9,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @WebServlet("/UpdateSchedule")
 public class UpdateScheduleServlet extends HttpServlet {
@@ -18,8 +20,8 @@ public class UpdateScheduleServlet extends HttpServlet {
         String trainId = req.getParameter("trainId");
         String departureStation = req.getParameter("departureStation");
         String arrivalStation = req.getParameter("arrivalStation");
-        String departureTime = req.getParameter("departureTime");
-        String arrivalTime = req.getParameter("arrivalTime");
+        LocalDateTime departureTime = LocalDateTime.parse(req.getParameter("departureTime").replace('T', ' '), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
+        LocalDateTime arrivalTime = LocalDateTime.parse(req.getParameter("arrivalTime").replace('T', ' '), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"));
         int availableSeats = Integer.parseInt(req.getParameter("availableSeats"));
 
         Schedule schedule = new Schedule(scheduleId, trainId, departureStation, arrivalStation, departureTime, arrivalTime, availableSeats);

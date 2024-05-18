@@ -5,6 +5,7 @@
 <%@ page import="Service.AdministratorDao" %>
 <%@ page import="Model.Schedule" %>
 <%@ page import="java.util.List" %>
+<%@ page import="java.time.format.DateTimeFormatter" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -62,8 +63,8 @@
         <td><%= schedule.getTrainId() %></td>
         <td><%= schedule.getDepartureStation() %></td>
         <td><%= schedule.getArrivalStation() %></td>
-        <td><%= schedule.getDepartureTime() %></td>
-        <td><%= schedule.getArrivalTime() %></td>
+        <td><%= schedule.getDepartureTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) %></td>
+        <td><%= schedule.getArrivalTime().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")) %></td>
         <td><%= schedule.getAvailableSeats() %></td>
         <td>
             <a href="<%=request.getContextPath()%>/Admin/UpdateSchedule.jsp?scheduleId=<%= schedule.getScheduleId() %>">Update</a>

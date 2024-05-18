@@ -1,15 +1,17 @@
 package Model;
 
+import java.time.LocalDateTime;
+
 public class Schedule {
     private int scheduleId;
     private String trainId;
     private String departureStation;
     private String arrivalStation;
-    private String departureTime;
-    private String arrivalTime;
+    private LocalDateTime departureTime;
+    private LocalDateTime arrivalTime;
     private int availableSeats;
 
-    public Schedule(int scheduleId, String trainId, String departureStation, String arrivalStation, String departureTime, String arrivalTime, int availableSeats) {
+    public Schedule(int scheduleId, String trainId, String departureStation, String arrivalStation, LocalDateTime departureTime, LocalDateTime arrivalTime, int availableSeats) {
         this.scheduleId = scheduleId;
         this.trainId = trainId;
         this.departureStation = departureStation;
@@ -51,19 +53,19 @@ public class Schedule {
         this.arrivalStation = arrivalStation;
     }
 
-    public String getDepartureTime() {
+    public LocalDateTime getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(String departureTime) {
+    public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
     }
 
-    public String getArrivalTime() {
+    public LocalDateTime getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(String arrivalTime) {
+    public void setArrivalTime(LocalDateTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 

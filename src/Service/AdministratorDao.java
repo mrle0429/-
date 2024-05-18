@@ -4,10 +4,9 @@ import Model.Schedule;
 import Model.User;
 import Util.DBUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -173,8 +172,8 @@ public class AdministratorDao {
         String trainId = schedule.getTrainId();
         String departureStation = schedule.getDepartureStation();
         String arrivalStation = schedule.getArrivalStation();
-        String departureTime = schedule.getDepartureTime();
-        String arrivalTime = schedule.getArrivalTime();
+        LocalDateTime departureTime = schedule.getDepartureTime();
+        LocalDateTime arrivalTime = schedule.getArrivalTime();
         int availableSeats = schedule.getAvailableSeats();
 
         try {
@@ -189,8 +188,8 @@ public class AdministratorDao {
                 st.setString(1, trainId);
                 st.setString(2, departureStation);
                 st.setString(3, arrivalStation);
-                st.setString(4, departureTime);
-                st.setString(5, arrivalTime);
+                st.setTimestamp(4, Timestamp.valueOf(departureTime));
+                st.setTimestamp(5, Timestamp.valueOf(arrivalTime));
                 st.setInt(6, availableSeats);
                 st.setInt(7, scheduleId);
 
@@ -242,8 +241,8 @@ public class AdministratorDao {
         String trainId = schedule.getTrainId();
         String departureStation = schedule.getDepartureStation();
         String arrivalStation = schedule.getArrivalStation();
-        String departureTime = schedule.getDepartureTime();
-        String arrivalTime = schedule.getArrivalTime();
+        LocalDateTime departureTime = schedule.getDepartureTime();
+        LocalDateTime arrivalTime = schedule.getArrivalTime();
         int availableSeats = schedule.getAvailableSeats();
 
         try {
@@ -255,8 +254,8 @@ public class AdministratorDao {
             st.setString(2, trainId);
             st.setString(3, departureStation);
             st.setString(4, arrivalStation);
-            st.setString(5, departureTime);
-            st.setString(6, arrivalTime);
+            st.setTimestamp(5, Timestamp.valueOf(departureTime));
+            st.setTimestamp(6, Timestamp.valueOf(arrivalTime));
             st.setInt(7, availableSeats);
 
             return st.executeUpdate() > 0;
@@ -272,12 +271,12 @@ public class AdministratorDao {
         return false;
     }
 
-    private static boolean scheduleDataChanged(ResultSet rs, String trainId, String departureStation, String arrivalStation, String departureTime, String arrivalTime, int availableSeats) throws SQLException {
+    private static boolean scheduleDataChanged(ResultSet rs, String trainId, String departureStation, String arrivalStation, LocalDateTime departureTime, LocalDateTime arrivalTime, int availableSeats) throws SQLException {
         String trainIdDB = rs.getString("trainId");
         String departureStationDB = rs.getString("departureStation");
         String arrivalStationDB = rs.getString("arrivalStation");
-        String departureTimeDB = rs.getString("departureTime");
-        String arrivalTimeDB = rs.getString("arrivalTime");
+        LocalDateTime departureTimeDB = LocalDateTime.parse(rs.getString("departureTime"), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        LocalDateTime arrivalTimeDB = LocalDateTime.parse(rs.getString("arrivalTime"), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         int availableSeatsDB = rs.getInt("availableSeats");
 
         return !trainIdDB.equals(trainId) || !departureStationDB.equals(departureStation) || !arrivalStationDB.equals(arrivalStation) ||
@@ -289,8 +288,8 @@ public class AdministratorDao {
         String trainId = rs.getString("trainId");
         String departureStation = rs.getString("departureStation");
         String arrivalStation = rs.getString("arrivalStation");
-        String departureTime = rs.getString("departureTime");
-        String arrivalTime = rs.getString("arrivalTime");
+        LocalDateTime departureTime = LocalDateTime.parse(rs.getString("departureTime"), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        LocalDateTime arrivalTime = LocalDateTime.parse(rs.getString("arrivalTime"), DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
         int availableSeats = rs.getInt("availableSeats");
 
         return new Schedule(scheduleId, trainId, departureStation, arrivalStation, departureTime, arrivalTime, availableSeats);
