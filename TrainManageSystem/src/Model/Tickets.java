@@ -1,17 +1,18 @@
 package Model;
 
-import java.util.Date;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 public class Tickets {
     private String ticketId;
     private String userId;
     private String scheduled;
     private String seatNumber;
-    private Date purchaseDate;
+    private LocalDateTime purchaseDate;
     private String comments;
     private String status;
 
-    public Tickets(String ticketId, String userId, String scheduled, String seatNumber, Date purchaseDate, String comments, String status) {
+    public Tickets(String ticketId, String userId, String scheduled, String seatNumber, LocalDateTime purchaseDate, String comments, String status) {
         this.ticketId = ticketId;
         this.userId = userId;
         this.scheduled = scheduled;
@@ -53,11 +54,11 @@ public class Tickets {
         this.seatNumber = seatNumber;
     }
 
-    public Date getPurchaseDate() {
+    public LocalDateTime getPurchaseDate() {
         return purchaseDate;
     }
 
-    public void setPurchaseDate(Date purchaseDate) {
+    public void setPurchaseDate(LocalDateTime purchaseDate) {
         this.purchaseDate = purchaseDate;
     }
 

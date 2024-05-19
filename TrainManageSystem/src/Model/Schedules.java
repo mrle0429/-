@@ -1,5 +1,6 @@
 package Model;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Schedules {
@@ -7,11 +8,11 @@ public class Schedules {
     private String trainId;
     private String departureStation;
     private String arrivalStation;
-    private Date departureTime;
-    private Date arrivalTime;
+    private LocalDateTime departureTime;
+    private LocalDateTime arrivalTime;
     private Integer availableSeats;
 
-    public Schedules(String scheduleId, String trainId, String departureStation, String arrivalStation, Date departureTime, Date arrivalTime, Integer avaliableSeats) {
+    public Schedules(String scheduleId, String trainId, String departureStation, String arrivalStation, LocalDateTime departureTime, LocalDateTime arrivalTime, Integer avaliableSeats) {
         this.scheduleId = scheduleId;
         this.trainId = trainId;
         this.departureStation = departureStation;
@@ -53,19 +54,19 @@ public class Schedules {
         this.arrivalStation = arrivalStation;
     }
 
-    public Date getDepartureTime() {
+    public LocalDateTime getDepartureTime() {
         return departureTime;
     }
 
-    public void setDepartureTime(Date departureTime) {
+    public void setDepartureTime(LocalDateTime departureTime) {
         this.departureTime = departureTime;
     }
 
-    public Date getArrivalTime() {
+    public LocalDateTime getArrivalTime() {
         return arrivalTime;
     }
 
-    public void setArrivalTime(Date arrivalTime) {
+    public void setArrivalTime(LocalDateTime arrivalTime) {
         this.arrivalTime = arrivalTime;
     }
 

@@ -15,7 +15,18 @@ public class User {
     public User() {
     }
 
-    public User(String userId, String userName, Integer userAge, String userSex, String phoneNumber, String email, String address, String country,String password) {
+    public User(String userId, String userName, Integer userAge, String userSex, String phoneNumber, String email, String address, String country) {
+        this.userId = userId;
+        this.userName = userName;
+        this.userAge = userAge;
+        this.userSex = userSex;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.address = address;
+        this.country = country;
+    }
+
+    public User(String userId, String userName, Integer userAge, String userSex, String phoneNumber, String email, String address, String country, String password) {
         this.userId = userId;
         this.userName = userName;
         this.userAge = userAge;

@@ -6,6 +6,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -35,10 +36,13 @@ public class AdministratorLoginServlet extends HttpServlet {
             ps.setString(2,password);
             ResultSet rs = ps.executeQuery();
             if(rs.next()){
-                resp.sendRedirect(req.getContextPath()+"/AdministratorInterface");
+                HttpSession session = req.getSession();
+                session.setAttribute("adminName", username);
+                resp.sendRedirect(req.getContextPath() + "/Admin/AdminHome.jsp");
+            }else {
+                req.setAttribute("errorMessage", "Wrong Information !!");
+                req.getRequestDispatcher("adLogin.jsp").forward(req, resp);
             }
-            req.setAttribute("errorMessage","Wrong Information !!");
-            req.getRequestDispatcher("/adLogin.jsp").forward(req,resp);
         } catch (SQLException e) {
             e.printStackTrace();
         }finally {

@@ -7,8 +7,88 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDao {
+
+    public static int getTotalNumberOfUser(){
+        int count = 0;
+
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBUtil.getConnection();
+            String sql = "SELECT COUNT(*) FROM user";
+            st = conn.prepareStatement(sql);
+            rs = st.executeQuery();
+
+            if (rs.next()){
+                count = rs.getInt(1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                DBUtil.closeAllConnections(conn, st, rs);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return count;
+    }
+
+    public static List<User> getUsersByPage(int currentPage, int recordsPerPage){
+        List<User> users = new ArrayList<>();
+        int start = (currentPage - 1) * recordsPerPage;
+
+        Connection conn = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+            conn = DBUtil.getConnection();
+            String sql = "SELECT * FROM user LIMIT ? OFFSET ?";
+            st = conn.prepareStatement(sql);
+            st.setInt(1, recordsPerPage);
+            st.setInt(2, start);
+            rs = st.executeQuery();
+
+            while (rs.next()){
+                users.add(createUserByResSet(rs));
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                DBUtil.closeAllConnections(conn, st, rs);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return users;
+    }
+
+    private static User createUserByResSet(ResultSet rs) throws SQLException {
+        String userId = rs.getString("userId");
+        String userName = rs.getString("userName");
+        int userAge = rs.getInt("userAge");
+        String userSex = rs.getString("userSex");
+        String phoneNumber = rs.getString("phoneNumber");
+        String email = rs.getString("email");
+        String address = rs.getString("address");
+        String county = rs.getString("country");
+        return new User(userId, userName, userAge, userSex, phoneNumber, email, address, county);
+    }
+
+
+
+
+
     public static User selectUserById(String Id){
 
         Connection con = DBUtil.getConnection();
@@ -96,15 +176,15 @@ public class UserDao {
     }
 
 
-    public static boolean checkSameID(int generatedID){
+    public static boolean checkSameID(String generatedID){
         Connection con = DBUtil.getConnection();
         String sql = "select userId from user";
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while(rs.next()){
-                int userId = rs.getInt("userId");
-                if(userId == generatedID){
+                String userId = rs.getString("userId");
+                if(userId.equals(generatedID)){
                     return false;
                 }
             }

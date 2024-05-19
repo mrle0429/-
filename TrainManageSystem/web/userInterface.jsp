@@ -27,7 +27,7 @@
                </tr>
 
                <tr>
-                   <td><a href="<%=request.getContextPath()%>/OrdersTickets?userId=${user.getUserId()}">订单信息</a></td>
+                   <td><a href="<%=request.getContextPath()%>/TicketsInterface?userId=${user.getUserId()}">订单信息</a></td>
                </tr>
 
                <tr>

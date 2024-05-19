@@ -1,8 +1,6 @@
 package Util;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBUtil {
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver" ;
@@ -29,6 +27,17 @@ public class DBUtil {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    public static void closeAllConnections(Connection conn, Statement st, ResultSet rs) throws SQLException{
+        if (rs != null){
+            rs.close();
+        }
+        if (st != null){
+            st.close();
+        }
+        if (conn != null){
+            conn.close();
         }
     }
 }
