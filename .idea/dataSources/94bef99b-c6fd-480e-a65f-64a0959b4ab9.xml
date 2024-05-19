@@ -902,10 +902,10 @@
       <DataType>datetime|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="229" parent="215" name="avaliableSeats">
+    <column id="229" parent="215" name="availableSeats">
       <Position>7</Position>
       <Comment>剩余座位数</Comment>
-      <DataType>varchar(255)|0s</DataType>
+      <DataType>int(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="230" parent="216" name="stationId">
@@ -1005,7 +1005,7 @@
     </column>
     <column id="245" parent="219" name="userId">
       <Position>1</Position>
-      <DataType>varchar(11)|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
