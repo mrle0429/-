@@ -1,0 +1,71 @@
+.title{
+    position: relative;
+    z-index: 1;
+    width: 200px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.title .Img{
+    margin: 100px auto ;
+    height: auto;
+}
+
+.login-page{
+    width: 500px;
+    padding: 1% 0 0 ;
+    margin: auto;
+}
+
+a a:hover{
+    text-decoration: none;
+    color: brown;
+}
+
+.form{
+    position: relative;
+    z-index: 2;
+    background: lightblue;
+    max-width: 400px;
+    margin: 0 auto 100px;
+    padding: 30px;
+    text-align: center;
+}
+
+.form input{
+    font-family: "Times New Roman",sans-serif;
+    outline: 0;
+    background: aliceblue;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.form button{
+    font-family: "Times New Roman", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: aquamarine;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: white;
+    font-size: 14px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+body{
+    background-color: rgba(255,255,255,0.3) ;
+    background-image: url('../staticSources/loginUser.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    font-family: "Times New Roman",sans-serif;
+}

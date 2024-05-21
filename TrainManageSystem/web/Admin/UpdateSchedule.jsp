@@ -8,7 +8,7 @@
 <body>
 
 <%
-    String scheduleId = Integer.parseInt(request.getParameter("scheduleId"));
+    String scheduleId = request.getParameter("scheduleId");
     Schedules schedule = AdministratorDao.getScheduleByID(scheduleId);
 %>
 <h2>Please update</h2>

@@ -9,25 +9,39 @@
 <html>
 <head>
     <title>AdministratorLogin</title>
+    <link rel="stylesheet" href="css/loginAdmin.css">
 </head>
 <body>
-   <form action="<%=request.getContextPath()%>/AdministratorLogin" method="post">
-       <p style="font-size: 25px;font-family: 楷体;font-weight: 800">
-           User: <input type="text" name="username"> </p>
-       <p style="font-size: 25px;font-family: 楷体;font-weight: 800">
-           Password: <input type="password" name="password"></p>
 
-       <p>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="登录"
-                                                                  style="font-family: 楷体;font-size: 20px">
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="重置" style="font-family: 楷体;font-size: 20px">
-           <br>
-       <p>
+<div class="title">
+    <img src="staticSources/adminlogin.png" width="260" height="260">
+</div>
 
-   </form>
+<div class="login-page">
+    <div class="form">
+        <form action="<%=request.getContextPath()%>/AdministratorLogin" method="post">
 
-   <span>
+            User: <input type="text" name="username">
+            Password: <input type="password" name="password">
+
+
+            <button>Login</button>
+
+            <%--<input type="submit" value="Login" style="font-family: 楷体;font-size: 20px">--%>
+            <br>
+
+        </form>
+    </div>
+
+    <span>
        <h1 style="color: red">${errorMessage}</h1>
    </span>
+
+</div>
+
+
+
+<%@include file="footer.html"%>
+
 </body>
 </html>

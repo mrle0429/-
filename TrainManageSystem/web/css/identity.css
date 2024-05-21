@@ -1,0 +1,63 @@
+.chose-page{
+    width: 400px;
+    padding: 8% 0 0 ;
+    margin: auto;
+}
+
+.form{
+    position: relative;
+    z-index: 1;
+    background: lightblue;
+    max-width: 400px;
+    margin: 0 auto 100px;
+    padding:45px;
+    text-align: center;
+}
+.form input{
+    font-family: "Times New Roman",sans-serif;
+    outline: 0;
+    background: aliceblue;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.title {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.title:before, .title:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.title .info{
+    margin: 50px auto;
+    text-align: center;
+}
+
+.title .info h1{
+    margin: 0 0 15px;
+    padding: 0;
+    font-size: 36px;
+    font-weight: 300;
+    font-family: "Times New Roman",sans-serif;
+    color: black;
+}
+
+body{
+    background-color: rgba(255,255,255,0.3) ;
+    background-image: url('../staticSources/TrainChose.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    font-family: "Times New Roman",sans-serif;
+}
