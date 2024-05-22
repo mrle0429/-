@@ -6,25 +6,31 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-    <title>用户修改数据</title>
+    <title>Update Info</title>
+    <link rel="stylesheet" href="css/infoUpdate.css">
 </head>
 <body>
-<form action="<%=request.getContextPath()%>/UpdateUser" method="post">
-    <input type="hidden" name="userId" value="${user.getUserId()}"/>
-    <input type="hidden" name="password" value="${user.getPassword()}"/>
-    <br>
-    姓名<input type="text" name="userName" value="${user.getUserName()}"/><br>
-    年龄<input type="text" name="userAge" value="${user.getUserAge()}"/><br>
-    性别<input type="text" name="userSex" value="${user.getUserSex()}"/><br>
-    电话号码<input type="text" name="phoneNumber" value="${user.getPhoneNumber()}"/><br>
-    邮箱<input type="text" name="email" value="${user.getEmail()}"/><br>
-    居住地址<input type="text" name="address" value="${user.getAddress()}"/><br>
-    所在国家<input type="text" name="country" value="${user.getCountry()}"/><br>
 
-    <input type="submit" value="提交"><br>
-    <input type="reset" value="重置">
-</form>
+<div class="form">
+    <form action="<%=request.getContextPath()%>/UpdateUser" method="post">
+        <input type="hidden" name="userId" value="${user.getUserId()}"/>
+        <input type="hidden" name="password" value="${user.getPassword()}"/>
+        <br>
+        Name <input type="text" name="userName" value="${user.getUserName()}"/><br>
+        Age <input type="text" name="userAge" value="${user.getUserAge()}"/><br>
+        Sex <input type="text" name="userSex" value="${user.getUserSex()}"/><br>
+        PhoneNumber <input type="text" name="phoneNumber" value="${user.getPhoneNumber()}"/><br>
+        Email <input type="text" name="email" value="${user.getEmail()}"/><br>
+        Address <input type="text" name="address" value="${user.getAddress()}"/><br>
+        Country <input type="text" name="country" value="${user.getCountry()}"/><br>
+
+        <input type="submit" value="Submit"><br>
+        <input type="reset" value="Reset">
+    </form>
+</div>
+
 </body>
 </html>

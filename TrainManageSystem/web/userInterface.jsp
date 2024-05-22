@@ -9,41 +9,43 @@
 <html>
 <head>
     <title>User's Interface page</title>
+    <link rel="stylesheet" href="css/userMenu.css">
 </head>
 <body>
 
-    <h1>简单的用户界面</h1>
-    <h3>欢迎来到劣质12306系统，${user.getUserName()}</h3>
-
-    <div>
-        <table>
-            <thead>
-               <tr>铁路管理系统</tr>
-            </thead>
-
-            <tbody>
-               <tr>
-                   <td><a href="<%=request.getContextPath()%>/UserInformation?userId=${user.getUserId()}">个人信息</a></td>
-               </tr>
-
-               <tr>
-                   <td><a href="<%=request.getContextPath()%>/TicketsInterface?userId=${user.getUserId()}">订单信息</a></td>
-               </tr>
-
-               <tr>
-                   <td><a href="<%=request.getContextPath()%>/SchedulesInterface?userId=${user.getUserId()}">车次查询</a></td>
-               </tr>
-
-            </tbody>
-
-
-
-
-
-
-
-        </table>
+    <div class="title">
+        <div class="text">
+            <h1>UserMenu</h1>
+            <h3>Welcome to the train booking management system，${user.getUserName()}</h3>
+        </div>
     </div>
+
+
+    <div class="menu">
+
+        <div class="One">
+            <div class="menu-item">
+                <img src="staticSources/personInfo.png" width="100px" height="100px">
+                <button><a href="<%=request.getContextPath()%>/UserInformation?userId=${user.getUserId()}">Personal Information</a></button>
+            </div>
+        </div>
+
+        <div class="Two">
+            <div class="menu-item">
+                <img src="staticSources/orders.png" width="100px" height="100px" >
+                <button><a href="<%=request.getContextPath()%>/TicketsInterface?userId=${user.getUserId()}">Order Information</a></button>
+            </div>
+        </div>
+
+        <div class="Three">
+            <div class="menu-item">
+                <img src="staticSources/Schedules.png" width="100px" height="100px">
+                <button><a href="<%=request.getContextPath()%>/SchedulesInterface?userId=${user.getUserId()}">Schedule Inquiry</a></button>
+            </div>
+        </div>
+
+    </div>
+
 
 
 </body>

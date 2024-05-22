@@ -9,8 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>查询车次信息</title>
+    <title>Schedules Information Query</title>
+
     <script src="js/jquery-3.7.1.min.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="css/SchedulesInter.css">
 
 
 
@@ -18,34 +21,37 @@
 
 <body>
 
-<h1>车次信息查询</h1>
+<div class="title">
+    <h1>Schedules Information Query</h1>
+</div>
 
-<form action="<%=request.getContextPath()%>/SchedulesSelect" method="post">
-    <table>
-        <input type="hidden" name="userId" value="${userId}"/>
-        <tr>
-            <td>起始站： <input type="text" name="departure" placeholder="请输入起始站"></td>
-            <td>终点站： <input type="text" name="arrival" placeholder="请输入终点站"></td>
-            <td>
-                <label for="departure-date">选择发车日期:</label>
-                <input type="date" id="departure-date" name="departure-date">
-            </td>
 
-            <%--<td>出发日期：<input type="text" name="departureDate" placeholder="年/月/日"></td>--%>
-            <td><input type="submit" value="查询"></td>
-        </tr>
+<div class="form">
+    <form action="<%=request.getContextPath()%>/SchedulesSelect" method="post">
+        <table>
+            <input type="hidden" name="userId" value="${userId}"/>
+            <tr>
+                <td>departure： <input type="text" name="departure" placeholder="Please enter departureCity"></td>
+                <td>arrival： <input type="text" name="arrival" placeholder="Please enter arrivalCity"></td>
+                <td>
+                    <label for="departure-date">Departure Date:</label>
+                    <input type="date" id="departure-date" name="departure-date">
+                </td>
 
-    </table>
-</form>
+                <%--<td>出发日期：<input type="text" name="departureDate" placeholder="年/月/日"></td>--%>
+                <td><input type="submit" value="Query"></td>
+            </tr>
+
+        </table>
+    </form>
+
+</div>
 
 <br>
 <br>
 <br>
 <br>
 <br>
-<%--展示车次信息信息--%>
-
-
 
 <span>
     <h1>${errorMsg}</h1>
@@ -56,8 +62,10 @@
 </span>
 
 
+<div class="re">
+    <a href="<%=request.getContextPath()%>/UserInterface?userId=${userId}">Return</a>
+</div>
 
-<a href="<%=request.getContextPath()%>/UserInterface?userId=${userId}">返回主界面</a>
 
 
 </body>

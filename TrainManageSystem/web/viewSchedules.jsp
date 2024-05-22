@@ -10,7 +10,8 @@
 
 <html>
 <head>
-    <title>车次查询结果</title>
+    <title>Result Of Schedules Query</title>
+    <link rel="stylesheet" href="css/resultSch.css">
 </head>
 <body>
 <table border="3" align="center">
@@ -43,7 +44,7 @@
             <c:choose>
                <c:when test="${schedule.getDepartureTime().isAfter(currentDate) && schedule.getAvailableSeats()>0}">
                    <td>
-                       <a href="<%=request.getContextPath()%>/Purchase?userId=${userId}&scheduleId=${schedule.getScheduleId()}" onclick="return confirm('确定要购票吗？')">购票</a>
+                       <a href="<%=request.getContextPath()%>/Purchase?userId=${userId}&scheduleId=${schedule.getScheduleId()}" onclick="return confirm('确定要购票吗？')">Buy</a>
                    </td>
                </c:when>
             </c:choose>

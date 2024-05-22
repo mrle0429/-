@@ -10,7 +10,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>订单页面</title>
+    <title>Orders</title>
+    <link rel="stylesheet" href="css/order.css">
 </head>
 <body>
 
@@ -44,7 +45,7 @@
              <c:choose>
                <c:when test="${ticket.getDepartureTime().isAfter(localDateTime)}">
                    <td>
-                       <a href="<%=request.getContextPath()%>/Refund?userId=${userId}&ticketId=${ticket.getTicketId()}">退票</a>
+                       <a href="<%=request.getContextPath()%>/Refund?userId=${userId}&ticketId=${ticket.getTicketId()}">Refund</a>
                    </td>
                </c:when>
              </c:choose>
@@ -57,7 +58,7 @@
 
     </table>
 
-    <a href="<%=request.getContextPath()%>/UserInterface?userId=${userId}">返回主界面</a>
+    <a href="<%=request.getContextPath()%>/UserInterface?userId=${userId}">Return</a>
 
 
 </body>

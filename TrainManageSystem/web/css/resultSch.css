@@ -1,0 +1,34 @@
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+}
+
+thead {
+    background-color: #007bff;
+    color: #fff;
+}
+
+thead td {
+    padding: 10px;
+}
+
+tbody td {
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+
+tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}

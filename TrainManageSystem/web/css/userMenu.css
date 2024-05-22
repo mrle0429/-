@@ -1,0 +1,87 @@
+.title{
+    position: relative;
+    width: 600px;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+.title:before, .title:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.title .text{
+    margin: 20px auto;
+    text-align: center;
+}
+.title .text h1{
+    font-family: "Arial Black","Script MT Bold",sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    color: black;
+    text-align: center;
+}
+.title .text h3{
+    font-family: "Times New Roman",sans-serif;
+    font-weight: normal;
+    font-style: italic;
+    font-size: 24px;
+    color: black;
+}
+.menu{
+    display: flex;
+}
+
+.menu .One,
+.menu .Two,
+.menu .Three {
+    flex: 1;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item img {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.menu button{
+    font-family: "Times New Roman", sans-serif;
+    font-style: italic;
+    text-transform: uppercase;
+    text-align: center;
+    outline: 0;
+    background: aquamarine;
+    width: 100%;
+    border: 0;
+    padding: 15px;
+    color: azure;
+    font-size: 14px;
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.menu button a{
+    display: block;
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu button a:hover{
+    background-color: crimson;
+}
+
+
+body{
+    background-color: rgba(255,255,255,0.2) ;
+    background-image: url('../staticSources/MenuPic.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}

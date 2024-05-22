@@ -11,20 +11,94 @@
 <head>
     <title>Train Schedules</title>
     <style>
+        /*table {*/
+            /*width: 100%;*/
+            /*border-collapse: collapse;*/
+        /*}*/
+        /*table, th, td {*/
+            /*border: 1px solid black;*/
+        /*}*/
+        /*th, td {*/
+            /*padding: 10px;*/
+            /*text-align: left;*/
+        /*}*/
+        /*form {*/
+            /*margin: 0;*/
+        /*}*/
+        /* Reset */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa; /* 淡灰色背景 */
+            color: #333; /* 文本颜色 */
+            line-height: 1.6;
+        }
+
+        /* Header */
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            color: #007bff; /* 蓝色标题 */
+            font-size: 24px;
+        }
+
+        /* Table */
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 20px;
         }
-        table, th, td {
-            border: 1px solid black;
-        }
+
         th, td {
-            padding: 10px;
+            padding: 12px;
             text-align: left;
+            border: 1px solid #dee2e6; /* 灰色边框 */
         }
-        form {
-            margin: 0;
+
+        th {
+            background-color: #f2f2f2;
         }
+
+        tbody tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        tbody tr:hover {
+            background-color: #e2e6ea; /* 淡蓝色悬停背景 */
+        }
+
+        /* Pagination */
+        .pagination {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            color: #007bff; /* 蓝色链接 */
+            display: inline-block;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            border: 1px solid #007bff;
+            margin-right: 5px;
+            border-radius: 4px;
+        }
+
+        .pagination a.active {
+            background-color: #007bff;
+            color: #fff; /* 白色文字 */
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #007bff;
+            color: #fff;
+        }
+
     </style>
 </head>
 <body>

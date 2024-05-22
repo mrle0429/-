@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    background-image: url("../staticSources/infoCh.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+}
+
+.container .pic {
+    flex: 0 0 200px;
+    margin-right: 20px;
+}
+
+.container .pic img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+.container .info {
+    flex: 1;
+}
+
+.container .info h5 {
+    margin-bottom: 8px;
+    text-align: center;
+    font-style: normal;
+    font-weight: bold;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.button-container .buttonM {
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.button-container .buttonM a {
+    display: inline-block;
+    margin: 30px 5px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+a:hover {
+    background-color: #0056b3;
+}

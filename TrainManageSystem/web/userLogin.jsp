@@ -29,12 +29,11 @@
 
                 <button>Login</button>
 
-                <%--<input type="submit" value="Login">--%>
 
                 <br>
 
 
-            <p>Don't have a account?  <a href="<%=request.getContextPath()%>/SignIn">Sign In</a></p>
+            <p>Don't have an account?  <a href="<%=request.getContextPath()%>/SignIn">Register</a></p>
 
         </form>
     </div>
